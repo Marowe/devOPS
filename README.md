@@ -2,6 +2,12 @@
 
 To jest prosta aplikacja w Pythonie (Flask), która została skonteneryzowana i przygotowana do wdrożenia w środowisku Kubernetes. Projekt demonstruje podstawowy stos DevOps/GitOps.
 
+## 🚀 Live Demo (GKE)
+
+Aplikacja jest wdrożona na klastrze Google Kubernetes Engine:
+- **Web App:** [http://34.158.236.202](http://34.158.236.202)
+- **Metrics:** [http://34.158.236.202/metrics](http://34.158.236.202/metrics)
+
 ## Struktura Projektu
 
 - `app/`: Kod źródłowy aplikacji Python oraz Dockerfile.
