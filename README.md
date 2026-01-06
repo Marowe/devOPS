@@ -7,7 +7,7 @@ To jest prosta aplikacja w Pythonie (Flask), która została skonteneryzowana i 
 Aplikacja jest wdrożona na klastrze Google Kubernetes Engine:
 - **Web App:** [http://34.158.236.202](http://34.158.236.202)
 - **Metrics:** [http://34.158.236.202/metrics](http://34.158.236.202/metrics)
-- **Grafana:** [http://34.118.80.234](http://34.118.80.234) (Login: admin/admin)
+- **Grafana:** [http://34.118.80.234](http://34.118.80.234)
 
 ## Struktura Projektu
 
