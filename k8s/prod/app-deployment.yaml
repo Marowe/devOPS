@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-counter
+  namespace: prod
+  labels:
+    app: devops-counter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-counter
+  template:
+    metadata:
+      labels:
+        app: devops-counter
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5000"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+      - name: counter-app
+        image: devops-stack-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+          name: http
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-counter
+  namespace: prod
+  labels:
+    app: devops-counter
+spec:
+  type: NodePort
+  selector:
+    app: devops-counter
+  ports:
+  - port: 5000
+    targetPort: 5000
+    nodePort: 30500
+    name: http
